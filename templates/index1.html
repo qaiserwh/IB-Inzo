@@ -1,0 +1,120 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container-xxl position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="{% url 'index' %}" class="navbar-brand p-0">
+            <h1 class="m-0">IB Inzo</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{% url 'index' %}" class="nav-item nav-link active"><strong>الرئيسية</strong></a>
+                <a href="{% url 'course' %}" class="nav-item nav-link"><strong>الندوات</strong></a>
+                <a href="{% url 'offers' %}" class="nav-item nav-link "><strong>العروض</strong></a>
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="feature.html" class="dropdown-item">Features</a>
+                        <a href="quote.html" class="dropdown-item">Free Quote</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="" class="dropdown-item">Testimonial</a>
+                        <a href="{% url 'index' %}" class="dropdown-item">404 Page</a>
+                    </div>
+                </div> -->
+                <a href="{% url 'about' %}" class="nav-item nav-link "><strong>عن القسم</strong></a>
+            </div>
+            <!-- <a href="" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Free Quote</a> -->
+        </div>
+    </nav>
+
+            <div class="container-xxl bg-primary page-header">
+                <div class="container text-center">
+                    <h1 class="text-white animated zoomIn mb-3">تعرف على شركائنا</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <!-- <li class="breadcrumb-item"><a class="text-white" href="#">الرئيسية</a></li> -->
+                            <!-- <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li> -->
+                            <!-- <li class="breadcrumb-item text-white active" aria-current="page">العروض</li> -->
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Contact Start -->
+
+        <!-- Team Start -->
+        <div class="container-xxl py-6">
+            <div class="container">
+                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <div class="d-inline-block border rounded-pill text-primary px-4 mb-3"><h6>يتميز وكلائنا الحصريين بنجمة في اعلاه الصوره الخاصة بهم</h6></div>
+                    <h2 class="mb-5">تعرف على شركائنا</h2>
+                </div>
+                <style>
+                    .checked{
+                        color:#FE8800;
+                    }
+                    .bttn{
+                        text-align: center;
+                    }
+                </style>
+                <div class="row g-4">
+                {% for i in page2 %}
+
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item"> 
+                            <h5>{{i.name}}</h5>
+                            <p class="mb-4">{{i.IB_number}}</p>
+                             <i class="fa fa-user text-secondary"> {{i.client_NO}}</i>
+
+                                <i class="fa fa-{{i.typye}} checked"></i>
+                                
+                                <img class="img-fluid rounded-circle w-100 mb-4" src="{{i.photo.url}}" alt="">
+                              
+                            <span class="fa fa-star {{i.star1}}"></span>
+                            <span class="fa fa-star {{i.star2}}"></span>
+                            <span class="fa fa-star {{i.star3}}"></span>
+                            <span class="fa fa-star {{i.star4}}"></span>
+                            <span class="fa fa-star {{i.star5}}"></span>
+                            <span class="fa fa-star {{i.star6}}"></span>
+                           
+                            <div class="d-flex justify-content-center">
+                                
+                                <a class="btn btn-square text-primary bg-white m-1" href="{{i.facebook_link}}"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square text-primary bg-white m-1" href="{{i.instagram_link}}"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square text-primary bg-white m-1" href="{{i.telegram_link}}"><i class="fab fa-telegram"></i></a>
+                                <a class="btn btn-square text-primary bg-white m-1" href="{{i.IB_link}}"><i class="fa fa-link"></i></a>
+                             
+                              
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {%endfor%}
+ 
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+        
+        <!-- Contact End -->
+        
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+
+
+    {% endblock content %}

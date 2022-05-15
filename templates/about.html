@@ -1,0 +1,136 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-xxl position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="{% url 'index' %}" class="navbar-brand p-0">
+            <h1 class="m-0" style="color:aliceblue;">IB Inzo</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{% url 'index' %}" class="nav-item nav-link "><strong style="color:aliceblue;">الرئيسية</strong></a>
+                <a href="{% url 'course' %}" class="nav-item nav-link"><strong style="color:aliceblue;">الندوات</strong></a>
+                <a href="{% url 'offers' %}" class="nav-item nav-link"><strong style="color:aliceblue;">العروض</strong></a>
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="feature.html" class="dropdown-item">Features</a>
+                        <a href="quote.html" class="dropdown-item">Free Quote</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="" class="dropdown-item">Testimonial</a>
+                        <a href="{% url 'index' %}" class="dropdown-item">404 Page</a>
+                    </div>
+                </div> -->
+                     <a href="{% url 'sero' %}" class="nav-item nav-link "><strong style="color:aliceblue;">التعليم</strong></a>
+                <a href="{% url 'about' %}" class="nav-item nav-link active"><strong style="color:aliceblue;">عن القسم</strong></a>
+            </div>
+            <!-- <a href="" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Free Quote</a> -->
+        </div>
+    </nav>
+
+            <div class="container-xxl bg-primary page-header">
+                <div class="container text-center">
+                    <h1 class="text-white animated zoomIn mb-3">عن القسم</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <!-- <li class="breadcrumb-item"><a class="text-white" href="#">الرئيسية</a></li> -->
+                            <!-- <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li> -->
+                            <!-- <li class="breadcrumb-item text-white active" aria-current="page">عن القسم</li> -->
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- About Start -->
+        <div class="container-xxl py-6">
+            <div class="container">
+
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
+                        <img class="img-fluid" src="static/img/about.png">
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h2 class="mb-4"style="color:aliceblue;">About Us</h2>
+                        <!-- <h2 class="mb-4">Award Wining Consultancy Agency For Your Business</h2> -->
+                        {% for i in des %}
+                        <h5 class="mb-4" style="color:aliceblue;">{{i.Description}}</h5>
+                        {%endfor%}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-6">
+            <div class="container">
+                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <div class="d-inline-block border rounded-pill text-primary px-4 mb-3"> </div>
+                    <h2 class="mb-5"  style="color:aliceblue;">تعليقات الزوار</h2>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    {% for i in op %}
+                    <div class="testimonial-item rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-light mb-3"></i>
+                        <h6 style="color:aliceblue;" >  {{i.TheComment}}</h6>
+                        <div class="d-flex align-items-center">
+                            <!-- <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg"> -->
+                            <div class="ps-3">
+                                <h4 class="mb-1" style="color:aliceblue;">{{i.Name}}</h4>
+                                <small>Profession</small>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+        <!-- Contact Start -->
+        <div class="container-xxl py-6">
+            <div class="container">
+                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <div class="d-inline-block border rounded-pill text-primary px-4 mb-3"><h6  style="color:aliceblue;">أترك تعليقا</h6></div>
+                    <!-- <h2 class="mb-5">If You Have Any Query, Please Feel Free Contact Us</h2> -->
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.3s">
+                        <!-- <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> -->
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    {% csrf_token %}
+                                    {{forms}}
+                                </div>
+
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">انشر تعليق</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    {% endblock content %}

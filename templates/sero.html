@@ -1,0 +1,151 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<!--  -->
+
+
+<div class="container-xxl position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="{% url 'index' %}" class="navbar-brand p-0">
+            <h1 class="m-0"style="color:aliceblue;">IB Inzo</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{% url 'index' %}" class="nav-item nav-link "><strong style="color:aliceblue;">الرئيسية</strong></a>
+                <a href="{% url 'course' %}" class="nav-item nav-link"><strong style="color:aliceblue;">الندوات</strong></a>
+                <a href="{% url 'offers' %}" class="nav-item nav-link "><strong style="color:aliceblue;">العروض</strong></a>
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="feature.html" class="dropdown-item">Features</a>
+                        <a href="quote.html" class="dropdown-item">Free Quote</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="" class="dropdown-item">Testimonial</a>
+                        <a href="{% url 'index' %}" class="dropdown-item">404 Page</a>
+                    </div>
+                </div> -->
+                 <a href="{% url 'sero' %}" class="nav-item nav-link active"><strong style="color:aliceblue;">التعليم</strong></a>
+                <a href="{% url 'about' %}" class="nav-item nav-link "><strong style="color:aliceblue;">عن القسم</strong></a>
+            </div>
+            <!-- <a href="" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Free Quote</a> -->
+        </div>
+    </nav>
+
+          <div class="container-xxl bg-primary page-header">
+              <div class="container text-center">
+                  <h1 class="text-white animated zoomIn mb-3">التعليم</h1>
+                  <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb justify-content-center">
+                          <!-- <li class="breadcrumb-item"><a class="text-white" href="#">الرئيسية</a></li> -->
+                          <!-- <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li> -->
+                          <!-- <li class="breadcrumb-item text-white active" aria-current="page">العروض</li> -->
+                      </ol>
+                  </nav>
+              </div>
+          </div>
+      </div>
+
+<!--  -->
+        <div class="container-xxl py-6">
+            <div class="container">
+                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <div class="d-inline-block border rounded-pill text-primary px-4 mb-3" ><h6 style="color:aliceblue;"></h6></div>
+                    <h2 class="mb-5" style="color:aliceblue;">تعلم مجانا</h2>
+                </div>
+                <div class="row g-4">
+                        {% for i in sero %}
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item rounded h-100">
+                            <div class="d-flex justify-content-between">
+                              <img src="{{i.photo.url}}" class="card-img"  alt="...">
+                            </div>
+                            <div class="p-5">
+                                <h5 class="mb-3" style="color:aliceblue;">{{i.NameOfIb}}</h5>
+                                <!--<span> يمكنك الان من خلال هذا الموقع  معرفة شركائنا و الوصول الى قنواتهم التعليمية</span>-->
+                                       <h5 class="card-title"></h5>
+                                                 <p class="card-text"  style="color:aliceblue;"><small class="text-muted">{{i.Titel}}</small></p>
+                                           <p class="card-text"  style="color:aliceblue;">{{i.Description}}</p>
+                                            <a href="{{i.link}}" class="btn btn-primary">أنظم الان</a>
+                            </div>
+                        </div>
+                    </div>
+   {%endfor%}
+                    <!--<iframe src="https://ssltsw.investing.com?lang=1&forex=1,2,3,5,7,9,10&commodities=8830,8836,8831,8849,8833,8862,8832&indices=175,166,172,27,179,170,174&stocks=345,346,347,348,349,350,352&tabs=1,2,3,4" width="800" height="467"></iframe><div class="poweredBy" style="font-family:arial,helvetica,sans-serif; direction:ltr;"><span style="font-size: 11px;color: #333333;text-decoration: none;"><a rel="nofollow" target="_blank" style="font-size: 11px;color: #06529D; font-weight: bold;" class="underline_link"></a></span></div>-->
+                 <!--<iframe src="https://www.widgets.investing.com/top-cryptocurrencies?" width="100%" height="100%" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe><div class="poweredBy" style="font-family: Arial, Helvetica, sans-serif;">Powered by <a href="https://www.investing.com?utm_source=WMT&amp;utm_medium=referral&amp;utm_campaign=TOP_CRYPTOCURRENCIES&amp;utm_content=Footer%20Link" target="_blank" rel="nofollow">Investing.com</a></div>-->
+                   <!--<iframe src="https://ssltsw.investing.com/crypto-currency-rates?=945629,997650,1001803,1010773,1010776" width="100%" height="100%" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe><div class="poweredBy" style="font-family: Arial, Helvetica, sans-serif;"> <a></a></div>-->
+                    <!-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item rounded h-100">
+                            <div class="d-flex justify-content-between">
+                                <div class="service-icon">
+                                    <i class="fa fa-balance-scale fa-2x"></i>
+                                </div>
+
+                                <a class="service-btn" href="">
+                                    <i class="fa fa-link fa-2x"></i>
+                                </a>
+                            </div>
+                            <div class="p-5">
+                                <h5 class="mb-3">سياسة عادله </h5>
+                                <span>سياسة عادله اتجاه كل الوكلاء كونهم شركاء النجاح</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="service-item rounded h-100">
+                            <div class="d-flex justify-content-between">
+                                <div class="service-icon">
+                                    <i class="fa fa-house-damage fa-2x"></i>
+                                </div>
+
+                                <a class="service-btn" href="">
+                                    <i class="fa fa-link fa-2x"></i>
+                                </a>
+                            </div>
+                            <div class="p-5">
+                                <h5 class="mb-3">تقسيم خاص</h5>
+                                <span> تقسيم خاص بالوكلاء حسب نوع الوكالة التي معنا </span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+<!---->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--    {% for i in sero %}-->
+<!--  <div class="col-sm-6">-->
+<!--    <div class="card mb-3" style="max-width: 540px;">-->
+<!--        <div class="row no-gutters">-->
+<!--          <div class="col-md-4">-->
+<!--            <img src="{{i.photo.url}}" class="card-img" alt="...">-->
+<!--          </div>-->
+<!--          <div class="col-md-8">-->
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title"></h5>-->
+<!--              <p class="card-text"><small class="text-muted">{{i.Titel}}</small></p>-->
+<!--              <p class="card-text">{{i.Description}}</p>-->
+<!--              <a href="{{i.link}}" class="btn btn-primary">أنظم الان</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  </div>-->
+<!--  {%endfor%}-->
+<!--    </div>-->
+<!--    </div>-->
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    {% endblock content %}
